@@ -13,9 +13,9 @@ const { cmd,sck,sck1, getAdmin, tlang, prefix } = require('../lib')
 const Config = require('../config')
     //---------------------------------------------------------------------------
 cmd({
-        pattern: "act",
+        pattern: "فيرس",
         desc: "Switches for varios works.",
-        category: "group",
+        category: "القروبات",
         filename: __filename,
     },
     async(Void, citel, text,{ isCreator }) => {
@@ -27,7 +27,7 @@ cmd({
         const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
         //-----------------------------------------
         if (!citel.isGroup) return citel.reply("This command is only for group")
-        if (!text) return citel.reply(`❌ Please provide me term like like\n1-events\n2-antilink\n3-nsfw\n4-bot`)
+        if (!text) return citel.reply(`❌ Please provide me term like like\n1-events\n2-antilink\n3-nsfw\n4-cardgame\n5-bot`)
         if (!isAdmins) return citel.reply("❌ This command is only for admin")
         switch (text.split(" ")[0]) {
             case 'antilink':
@@ -75,6 +75,20 @@ cmd({
                     }
                 }
                 break
+            case 'cardgame':
+                {
+                    let checkgroup = sck.findOne({ id: citel.chat })
+                    if (!checkgroup) {
+                        await new sck({ id: citel.chat, cardgame: "active" })
+                            .save()
+                        return citel.reply("Successfully Enabled *Card Game*")
+                    } else {
+                        if (checkgroup.cardgame == "active") return citel.reply("*Card Game* was already enabled")
+                        await sck.updateOne({ id: citel.chat }, { cardgame: "active" })
+                        return citel.reply("Successfully Enabled *Card Game.*")
+                    }
+                }
+                break
             case 'nsfw':
                 {
                     let checkgroup = await sck.findOne({ id: citel.chat })
@@ -97,4 +111,3 @@ cmd({
         }
     }
 )
-

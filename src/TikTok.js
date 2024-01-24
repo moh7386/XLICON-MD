@@ -36,8 +36,8 @@ async function tiktokdl (url) {
 //---------------------------------------------------------------------------
 
 cmd({
-            pattern: "tiktok",
-	          alias :  ['tt','ttdl'],
+            pattern: "تيك",
+	    alias :  ['tt','ttdl'],
             desc: "Downloads Tiktok Videos Via Url.",
             category: "downloader",
             filename: __filename,
@@ -45,7 +45,7 @@ cmd({
         },
 
         async(Void, citel, text) => {
- if(!text) return await citel.reply(`*Uhh Please, Provide me tiktok Video Url*\n*_Ex .tiktok https://www.tiktok.com/@dakwahmuezza/video/7150544062221749531_*`);
+ if(!text) return await citel.reply(`*ارسل رابط الفيد*\n*مثال .تيك https://www.tiktok.com/@dakwahmuezza/video/7150544062221749531_*`);
  let txt = text ? text.split(" ")[0]:'';
  if (!/tiktok/.test(txt)) return await citel.reply(`*Uhh Please, Give me Valid Tiktok Video Url!*`);
  const { status ,thumbnail, video, audio } = await tiktokdl(txt)

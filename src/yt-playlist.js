@@ -7,15 +7,17 @@ var dlsize = 250 // 250mb
 
 
 cmd({
-            pattern: "playlist",
-            desc: "Downloads video from playlist.",
-            category: "downloader",
+            pattern: "قوائم",
+            desc: "تحميل فيديوهات.",
+            category: "التحميلات",
             filename: __filename,
             use: '<yt playlist url>',
         },
         async(Void, citel, text) => {
   
-            const getRandom = (ext) => {  return `${Math.floor(Math.random() * 10000)}${ext}`;  };
+            const getRandom = (ext) => {
+                return `${Math.floor(Math.random() * 10000)}${ext}`;
+            };
             if (!text) {
                 citel.reply(`❌Please provide me a url`);
                 return;
@@ -31,8 +33,7 @@ yts( opts, async function ( err, playlist ) {
     let urlYt = playlist.videos[i].videoId
     try {
       
-        
-        let infoYt = await ytdl.getInfo(urlYt);
+                let infoYt = await ytdl.getInfo(urlYt);
                 if (infoYt.videoDetails.lengthSeconds >= videotime) continue
                 let titleYt = infoYt.videoDetails.title;
                 let randomName = getRandom(".mp4");

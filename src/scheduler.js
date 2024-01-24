@@ -11,9 +11,9 @@
 
  const { tlang,sck,prefix,cmd } = require('../lib')
  cmd({
-     pattern: "amute",
+     pattern: "صمت",
      desc: "sets auto mute time in group.",
-     category: "moderation",
+     category: "اوضاع",
  },
  async(Void, citel, text,{ isCreator }) => {
      if (!isCreator) return citel.reply(tlang().owner)
@@ -31,13 +31,12 @@
              }      
  }
  )
- 
 
  //--------------------------------------------------------------------------------
  cmd({
-    pattern: "aunmute",
+    pattern: "صامت",
     desc: "sets unmute time in group.",
-    category: "moderation",
+    category: "اوضاع",
 },
 async(Void, citel, text,{ isCreator }) => {
     if (!isCreator) return citel.reply(tlang().owner)
@@ -58,16 +57,17 @@ async(Void, citel, text,{ isCreator }) => {
 )
  //--------------------------------------------------------------------------------
  cmd({
-    pattern: "dunmute",
+    pattern: "عام",
     desc: "Delete unmute from group.",
-    category: "moderation",
+    category: "اوضاع",
 },
 async(Void, citel, text,{ isCreator }) => {
     if (!isCreator) return citel.reply(tlang().owner)
     if(!citel.isGroup) return citel.reply(tlang().group)
           let Group = await sck.findOne({ id: citel.chat })
-            if (!Group) {return citel.reply('There\'s no unmute set in group.') }
-            else {
+            if (!Group) {
+                return citel.reply('There\'s no unmute set in group.')
+            } else {
                 await await sck.updateOne({ id: citel.chat }, { unmute:'false' })
                 return citel.reply('Unmute deleted successfully.')
                 
@@ -76,16 +76,17 @@ async(Void, citel, text,{ isCreator }) => {
 )
  //--------------------------------------------------------------------------------
  cmd({
-    pattern: "dmute",
+    pattern: "عامي",
     desc: "Delete mute from group.",
-    category: "moderation",
+    category: "اوضاع",
 },
 async(Void, citel, text,{ isCreator }) => {
     if (!isCreator) return citel.reply(tlang().owner)
     if(!citel.isGroup) return citel.reply(tlang().group)
           let Group = await sck.findOne({ id: citel.chat })
-            if (!Group) { return citel.reply('There\'s no mute set in group.') }
-            else {
+            if (!Group) {
+                return citel.reply('There\'s no mute set in group.')
+            } else {
                 await await sck.updateOne({ id: citel.chat }, { mute:'false' })
                 return citel.reply('Mute deleted successfully.')
                 

@@ -14,10 +14,10 @@
  const ty = eco.connect(mongodb);
 cmd(
   {
-    pattern: "delttt",
-    desc: "deletes TicTacToe running session.",
+    pattern: "اعادة",
+    desc: "حذف جلسة اللعبة.",
     filename: __filename,
-    category: "game",
+    category: "الالعاب",
   },
   async (Void,citel,text,{isCreator}) => {
         if (!citel.isGroup) return citel.reply(tlang().group);
@@ -25,7 +25,7 @@ cmd(
         const participants = citel.isGroup ? await groupMetadata.participants : "";
         const groupAdmins = await getAdmin(Void, citel)
         const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
-        if(!isAdmins && !isCreator) return citel.reply('This command is only for Group Admin and my owner.')
+        if(!isAdmins && !isCreator) return citel.reply('الأمر لادمن القروب أو المطور.')
          this.game = this.game ? this.game : false
          if (
         Object.values(this.game).find(
@@ -34,19 +34,19 @@ cmd(
         )
       ) {
         delete this.game
-        return citel.reply(`_Successfully Deleted running TicTacToe game._`);
+        return citel.reply(`_تم حذف الجلسة._`);
         } else {
-              return citel.reply(`No TicTacToe game🎮 is running.`)
+              return citel.reply(`اللعبة لم تحذف.`)
                     
         }
   })
   
 cmd(
   {
-    pattern: "ttt",
-    desc: "Play TicTacToe",
+    pattern: "اكس",
+    desc: "لعبة اكس او",
     filename: __filename,
-    category: "game",
+    category: "الالعاب",
   },
   async (Void,citel,text) => {
     if (!citel.isGroup) return citel.reply(tlang().group);
@@ -86,8 +86,8 @@ cmd(
           }[v];
         });
         let str = `
-Current turn: @${room.game.currentTurn.split("@")[0]}
-Room ID: ${room.id}
+دورك: @${room.game.currentTurn.split("@")[0]}
+رقم الجلسة: ${room.id}
 ${arr.slice(0, 3).join("  ")}
 ${arr.slice(3, 6).join("  ")}
 ${arr.slice(6).join("  ")}
@@ -106,7 +106,7 @@ ${arr.slice(6).join("  ")}
           state: "WAITING",
         };
         if (text) room.name = text;
-        citel.reply("_Waiting for player,use .ttt to join this game._ ");
+        citel.reply("_انتظار اللاعب,قم بكتابة .اكس للبدأ._ ");
         this.game[room.id] = room;
       }
     }
@@ -188,7 +188,7 @@ ${arr.slice(3, 6).join("  ")}
 ${arr.slice(6).join("  ")}
 ${
   isWin
-    ? `@${winner.split("@")[0]} Won ! and got 2000💎 in wallet🤑`
+    ? `@${winner.split("@")[0]} فزت ! وكسبت 2000💎مبروك`
     : isTie
     ? `Game Tied,well done to both of you players.`
     : `Current Turn ${["❌", "⭕"][1 * room.game._currentTurn]} @${

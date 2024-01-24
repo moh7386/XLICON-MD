@@ -3,9 +3,9 @@
  Licensed under the  GPL-3.0 License;
  You may not use this file except in compliance with the License.
  It is supplied in the hope that it may be useful.
- * @project_name : XLICON-MD
- * @author : SalmanYtOfficial <https://github.com/salmanytofficial>
- * @description : XLICON ,A Multi-functional whatsapp bot.
+ * @project_name : Secktor-Md
+ * @author : SamPandey001 <https://github.com/SamPandey001>
+ * @description : Secktor,A Multi-functional whatsapp bot.
  * @version 0.0.6
  **/
 
@@ -17,9 +17,9 @@ const fetch = require('node-fetch')
 
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "imdb",
-            category: "search",
-            desc: "Sends image of asked Movie/Series.",
+            pattern: "امبيدي",
+            category: "بحث",
+            desc: "بحث افلام ومسلسلات.",
             use: '<text>',
             filename: __filename,
         },
@@ -59,9 +59,9 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "weather",
-            category: "search",
-            desc: "Sends weather info about asked place.",
+            pattern: "طقس",
+            category: "بحث",
+            desc: "حالة الطقس.",
             use: '<location>',
             filename: __filename,
         },
@@ -83,15 +83,21 @@ cmd({
             textw += `*Longitude:-* ${wdata.data.coord.lon}\n`;
             textw += `*Country:-* ${wdata.data.sys.country}\n`;
 
+            Void.sendMessage(
+                citel.chat, {
+                    text: textw,
+                }, {
+                    quoted: citel,
+                }
+            );
 
-            return await citel.reply(textw)
         }
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "horo",
-            category: "search",
-            desc: "Gives horoscope info of user.",
+            pattern: "ساعة",
+            category: "بحث",
+            desc: "كم الساعة للدول.",
             use: '<sign>\n:Example: horo libra',
             filename: __filename,
         },
@@ -126,10 +132,10 @@ cmd({
     )
     //---------------------------------------------------------------------------
     cmd({
-        pattern: "google",
+        pattern: "جوجل",
         alias :['search','gsearch'],
-        category: "search",
-        desc: "Sends info of given query from Google Search.",
+        category: "بحث",
+        desc: "بحث في جوجل.",
         use: '<text>',
         filename: __filename,
     },
@@ -150,9 +156,9 @@ cmd({
 )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "image",
-            category: "search",
-            desc: "Searches Image on Google",
+            pattern: "صور",
+            category: "بحث",
+            desc: "البحث عن صور",
             use: '<text>',
             filename: __filename,
         },
@@ -166,29 +172,38 @@ cmd({
             for (let i = 0; i < nn; i++) {
 
                 let n = await gis(name1)
-                    images = n[Math.floor(Math.random() * n.length)].url;
-                    await Void.sendMessage(citel.chat, {image: {  url: images,}, caption: `_Xlicon Image Search_\n*${name1}*`,}, { quoted: citel, });
+                images = n[Math.floor(Math.random() * n.length)].url;
+                    let buttonMessage = {
+                        image: {
+                            url: images,
+                        },
+                        caption: `_Sector Image Search_\n*${name1}*`,
+                        headerType: 4,
+                    };
+                    Void.sendMessage(citel.chat, buttonMessage, {
+                        quoted: citel,
+                    });
             }
         }
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "couplepp",
-            category: "search",
-            desc: "Sends two couples pics.",
+            pattern: "كوبل",
+            category: "بحث",
+            desc: "صور كوبل.",
             filename: __filename,
         },
         async(Void, citel, text) => {
             let anu = await fetchJson('https://raw.githubusercontent.com/iamriz7/kopel_/main/kopel.json')
             let random = anu[Math.floor(Math.random() * anu.length)]
-            Void.sendMessage(citel.chat, { image: { url: random.male }, caption: `Couple Male` }, { quoted: citel })
-            Void.sendMessage(citel.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: citel })
+            Void.sendMessage(citel.chat, { image: { url: random.male }, caption: `ولد` }, { quoted: citel })
+            Void.sendMessage(citel.chat, { image: { url: random.female }, caption: `بنت` }, { quoted: citel })
         }
     )
     //---------------------------------------------------------------------------
 cmd({
-        pattern: "iswa",
-        category: "search",
+        pattern: "واتسب",
+        category: "بحث",
         desc: "Searches in given rage about given number.",
         use: '9112345678xx',
         filename: __filename,
@@ -205,9 +220,13 @@ cmd({
         var number1 = inputnumber.split('x')[countInstances(inputnumber, 'x')] ? inputnumber.split('x')[countInstances(inputnumber, 'x')] : ''
         var random_length = countInstances(inputnumber, 'x')
         var randomxx;
-        if (random_length == 1) {   randomxx = 10 } 
-        else if (random_length == 2) { randomxx = 100  } 
-        else if (random_length == 3) {randomxx = 1000  }
+        if (random_length == 1) {
+            randomxx = 10
+        } else if (random_length == 2) {
+            randomxx = 100
+        } else if (random_length == 3) {
+            randomxx = 1000
+        }
         var text = `*--『 List of Whatsapp Numbers 』--*\n\n`
         var nobio = `\n*Bio:* || \nHey there! I am using WhatsApp.\n`
         var nowhatsapp = `\n*Numbers with no WhatsApp account within provided range.*\n`
@@ -240,10 +259,11 @@ cmd({
                 } else {
                     text += `🧐 *Number:* wa.me/${anu[0].jid.split("@")[0]}\n ✨*Bio :* ${anu1.status}\n🍁*Last update :* ${moment(anu1.setAt).tz('Asia/Kolkata').format('HH:mm:ss DD/MM/YYYY')}\n\n`
                 }
-            } catch { nowhatsapp += `${number0}${i}${number1}\n` }
+            } catch {
+                nowhatsapp += `${number0}${i}${number1}\n`
+            }
         }
         citel.reply(`${text}${nobio}${nowhatsapp}`)
 
     }
 )
-

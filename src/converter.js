@@ -17,17 +17,17 @@ const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter")
 
     //---------------------------------------------------------------------------
     cmd({
-        pattern: "photo",
-        desc: "Makes photo of replied sticker.",
-        category: "converter",
-        use: '<reply to any gif>',
+        pattern: "صورة",
+        desc: "صنع صورة من ملصق.",
+        category: "التحويلات",
+        use: '<منشن اي صورة ملصق>',
         filename: __filename
     },
     async(Void, citel, text) => {
         const getRandom = (ext) => {
             return `${Math.floor(Math.random() * 10000)}${ext}`
         }
-        if (!citel.quoted) return citel.reply(`_Reply to Any Sticker._`)
+        if (!citel.quoted) return citel.reply(`_منشن اي ملصق._`)
         let mime = citel.quoted.mtype
 if (mime =="imageMessage" || mime =="stickerMessage")
 {
@@ -50,10 +50,10 @@ if (mime =="imageMessage" || mime =="stickerMessage")
 //---------------------------------------------------------------------------
 
 cmd({
-         pattern: "vv",
-         alias : ['viewonce','retrive'],
-         desc: "Flips given text.",
-         category: "misc",
+         pattern: "كشف",
+         alias : ['عرض','اظهار'],
+         desc: "يعرض الصورة التب بلقطة.",
+         category: "منوعات",
          use: '<query>',
          filename: __filename
      },
@@ -104,11 +104,11 @@ else return citel.reply("```This is Not A ViewOnce Message```")
 
 })    //---------------------------------------------------------------------------
 cmd({
-            pattern: "quotely",
-            desc: "Makes Sticker of quoted text.",
+            pattern: "تزوير",
+            desc: "اصنع ملصق من نص.",
             alias: ["q"],
-            category: "converter",
-            use: '<reply to any message.>',
+            category: "التحويلات",
+            use: '<منشن اي رسالة.>',
             filename: __filename
         },
         async(Void, citel, text) => {
@@ -150,7 +150,7 @@ cmd({
                     replyMessage: {},
                 }, ],
             };
-            let res = await axios.post("https://bot.lyo.su/quote/generate", body);
+            let res = await axios.post("https://quote.btch.bz/generate", body);
             let img = Buffer.alloc(res.data.result.image.length, res.data.result.image, "base64");
             return citel.reply(img,{packname:'Secktor',author:'Quotely'},"sticker")
 
@@ -158,9 +158,9 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "fancy",
-            desc: "Makes stylish/fancy given text",
-            category: "converter",
+            pattern: "زخرفة",
+            desc: "زخرفة النصوص انجليزي",
+            category: "التحويلات",
             use: '56 Secktor',
             react: "✅",
             filename: __filename
@@ -168,7 +168,7 @@ cmd({
         async(Void, citel, text) => {
             if (isNaN(text.split(" ")[0]) || !text) {
                 let text = tiny(
-                    "Fancy text generator\n\nExample: .fancy 32 Secktor\n\n"
+                    "زرخرفة النص\n\nمثال:.زخرفة 14 soul \n\n"
                 );
                 listall("Secktor Bot").forEach((txt, num) => {
                     text += `${(num += 1)} ${txt}\n`;
@@ -183,15 +183,15 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "tiny",
-            desc: "Makes url tiny.",
-            category: "converter",
+            pattern: "اختصر",
+            desc: "اختصار الرابط.",
+            category: "التحويلات",
             use: '<url>',
             react: "✅",
             filename: __filename
         },
         async(Void, citel, text) => {
-            if (!text) return citel.reply('Provide me a link')
+            if (!text) return citel.reply('ارسل الرابط')
             try {
                 link = text.split(" ")[0];
                 anu = await axios.get(`https://tinyurl.com/api-create.php?url=${link}`);
@@ -203,15 +203,15 @@ cmd({
     )
     //---------------------------------------------------------------------------
     cmd({
-        pattern: "circle",
+        pattern: "دائرة",
         alias: ["circlestic","circlesticker","cs"],
-        desc: "Makes sticker of replied image/video.",
-        category: "sticker",
+        desc: "يصنع ملصقات.",
+        category: "ملصقات",
 filename: __filename,
         use: '<reply to any image/video.>'
     },
     async(Void, citel, text) => {
-        if (!citel.quoted) return citel.reply(`*Reply To any Image or video Sir.*`);
+        if (!citel.quoted) return citel.reply(`*منشن صورة او فيد.*`);
       //console.log("Quoted Data here : ",citel.quoted);
         let mime = citel.quoted.mtype
         pack = Config.packname
@@ -235,10 +235,10 @@ filename: __filename,
 )
 //---------------------------------------------------------------------------
 cmd({
-        pattern: "crop",
+        pattern: "قص",
         alias: ["cropstic","csticker","cropsticker"],
         desc: "Makes sticker of replied image/video.",
-        category: "sticker",
+        category: "ملصقات",
 filename: __filename,
         use: '<reply to any image/video.>'
     },
@@ -267,15 +267,15 @@ filename: __filename,
 )
 //---------------------------------------------------------------------------
 cmd({
-        pattern: "round",
+        pattern: "تدوير",
         alias: ["roundstic","roundsticker"],
-        desc: "Makes sticker of replied image/video.",
-        category: "sticker",
+        desc: "تدوير الصور.",
+        category: "ملصقات",
 filename: __filename,
         use: '<reply to any image/video.>'
     },
     async(Void, citel, text) => {
-        if (!citel.quoted) return citel.reply(`*Reply To any Image or video Sir.*`);
+        if (!citel.quoted) return citel.reply(`*منشن صورة او فيد.*`);
       //console.log("Quoted Data here : ",citel.quoted);
         let mime = citel.quoted.mtype
         pack = Config.packname
@@ -298,10 +298,10 @@ filename: __filename,
     }
 )
 cmd({
-    pattern: "toaudio",
+    pattern: "اوديو",
     alias:['mp3','tomp3'],
-    desc: "changes type to audio.",
-    category: "converter",
+    desc: "رد على فيد.",
+    category: "التحويلات",
     use: '<reply to any Video>',
     filename: __filename
 },

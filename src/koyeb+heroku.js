@@ -3,9 +3,9 @@
  Licensed under the  GPL-3.0 License;
  You may not use this file except in compliance with the License.
  It is supplied in the hope that it may be useful.
- * @project_name : XLICON-MD
- * @author : @salmanytofficial <https://github.com/salmanytofficial>
- * @description : XLICON ,A Multi-functional whatsapp bot.
+ * @project_name : Secktor-Md
+ * @author : @samapndey001 <https://github.com/SamPandey001>
+ * @description : Secktor,A Multi-functional whatsapp bot.
  * @version 0.0.6
  **/
 const axios = require('axios');
@@ -16,10 +16,10 @@ const { redeploy , getvar , delvar , getallvar , change_env , get_deployments} =
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 cmd(
   {
-    pattern: "updatenow",
+    pattern: "تحديث",
     desc: "update bot with main repo.",
     filename: __filename,
-    category: "misc",
+    category: "منوعات",
   },
   async (Void,citel,text,{isCreator}) => {
     async function updatedb() {	
@@ -71,10 +71,10 @@ cmd(
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 cmd(
   {
-    pattern: "getvar",
+    pattern: "جيتفار",
     desc: "get desired var from koyeb.",
     filename: __filename,
-    category: "misc",
+    category: "منوعات",
   },
   async (Void,citel,text,{isCreator}) => {
        if(!isCreator) return citel.reply(tlang().owner);
@@ -94,14 +94,13 @@ cmd(
        let data = await getvar(text);
        return citel.reply(data)
   })
-  
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 cmd(
   {
-    pattern: "getallvar",
+    pattern: "جيتلفار",
     desc: "get all vars from koyeb.",
     filename: __filename,
-    category: "misc",
+    category: "منوعات",
   },
   async (Void,citel,text,{isCreator}) => {
        if(!isCreator) return citel.reply(tlang().owner);
@@ -124,21 +123,25 @@ citel.reply(str)
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 cmd(
   {
-    pattern: "setvar",
+    pattern: "سيتفار",
     desc: "set var in koyeb.",
     filename: __filename,
-    category: "misc",
+    category: "منوعات",
   },
   async (Void,citel,text,{isCreator}) => {
        if(!isCreator) return citel.reply(tlang().owner);
-       if(!text.split(':')[1]) return citel.reply('*Wrong Format.*\nPlease provide key and value.\n_Eg: .setvar THEME:GOJO_')
+       if(!text.split(':')[1]) return citel.reply('*Wrong Format.*\nPlease provide key and value.\n_Eg: .setvar THEME:SECKTOR_')
        if (Config.heroku=true){
         const Heroku = require("heroku-client");
         const heroku = new Heroku({
           token: Config.HEROKU.API_KEY,
         });
         let baseURI = "/apps/" + Config.HEROKU.APP_NAME;
-        await heroku.patch(baseURI + "/config-vars", {  body: { [text.split(':')[0]]: text.split(':')[1],  }, });
+        await heroku.patch(baseURI + "/config-vars", {
+          body: {
+                  [text.split(':')[0]]: text.split(':')[1],
+          },
+        });
         await citel.reply(`🟩var ${text.split(':')[0]} : ${text.split(':')[1]} has been set Successfuly.`);
        }
        let check = await get_deployments()
@@ -150,10 +153,10 @@ cmd(
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 cmd(
   {
-    pattern: "delvar",
+    pattern: "ديلفار",
     desc: "delete var from koyeb.",
     filename: __filename,
-    category: "misc",
+    category: "منوعات",
   },
   async (Void,citel,text,{isCreator}) => {
        if(!isCreator) return citel.reply(tlang().owner);

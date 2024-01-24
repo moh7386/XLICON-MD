@@ -16,9 +16,9 @@ const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter")
  const axios = require('axios')
   //---------------------------------------------------------------------------
  cmd({
-    pattern: "setwelcome",
+    pattern: "ترحيب",
     desc: "sets welcome message in specific group.",
-    category: "misc",
+    category: "منوعات",
 },
 async(Void, citel, text,{ isCreator }) => {
     if (!isCreator) return citel.reply(tlang().owner)
@@ -35,9 +35,9 @@ async(Void, citel, text,{ isCreator }) => {
 )
  //---------------------------------------------------------------------------
 cmd({
-    pattern: "setgoodbye",
+    pattern: "باي",
     desc: "sets goodbye message in specific group.",
-    category: "misc",
+    category: "منوعات",
 },
 async(Void, citel, text,{ isCreator }) => {
     if (!isCreator) return citel.reply(tlang().owner)
@@ -53,9 +53,9 @@ async(Void, citel, text,{ isCreator }) => {
 )
  //---------------------------------------------------------------------------
  cmd({
-             pattern: "attp",
+             pattern: "نصي",
              desc: "Makes glowing sticker of text.",
-             category: "sticker",
+             category: "ملصقات",
              filename: __filename,
          },
          async(Void, citel, text) => {
@@ -64,9 +64,9 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/attp/${text}`)
          }
      )
  cmd({
-             pattern: "ttp",
+             pattern: "نص",
              desc: "Makes static sticker of text.",
-             category: "sticker",
+             category: "ملصقات",
              filename: __filename,
          },
          async(Void, citel, text) => {
@@ -76,9 +76,9 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
      )
      //---------------------------------------------------------------------------
  cmd({
-             pattern: "exec",
+             pattern: "جافا",
              desc: "Evaluates quoted code with given language.",
-             category: "misc",
+             category: "منوعات",
              filename: __filename,
          },
          async(Void, citel, text) => {
@@ -105,9 +105,9 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
      )
      //---------------------------------------------------------------------------
  cmd({
-             pattern: "readmore",
+             pattern: "ريد",
              desc: "Adds *readmore* in given text.",
-             category: "misc",
+             category: "منوعات",
              filename: __filename,
          },
          async(Void, citel, text) => {
@@ -117,9 +117,9 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
      )
      //---------------------------------------------------------------------------
  cmd({
-             pattern: "steal",
-             desc: "Makes sticker of replied image/video.",
-             category: "sticker",
+             pattern: "حقوق",
+             desc: "منشن صورة او فيد.",
+             category: "ملصقات",
              filename: __filename,
          },
          async(Void, citel, text) => {
@@ -152,10 +152,10 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
      )
      //---------------------------------------------------------------------------
  cmd({
-             pattern: "uptime",
+             pattern: "تشغيل",
              alias: ["runtime"],
-             desc: "Tells runtime/uptime of bot.",
-             category: "misc",
+             desc: "وقت التشغيل.",
+             category: "منوعات",
              filename: __filename,
          },
          async(Void, citel, text) => {
@@ -165,9 +165,9 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
      )
      //---------------------------------------------------------------------------
  cmd({
-             pattern: "wm",
-             desc: "Makes wa.me of quoted or mentioned user.",
-             category: "misc",
+             pattern: "رابطي",
+             desc: "تحويل رقمك لرابط.",
+             category: "منوعات",
              filename: __filename,
          },
          async(Void, citel, text) => {
@@ -178,9 +178,9 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
      )
      //---------------------------------------------------------------------------
  cmd({
-             pattern: "pick",
-             desc: "Pics random user from Group",
-             category: "misc",
+             pattern: "نقز",
+             desc: "ذكر عضو عشوائي",
+             category: "منوعات",
              filename: __filename,
          },
          async(Void, citel, match) => {
@@ -201,9 +201,9 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
      )
      //---------------------------------------------------------------------------
  cmd({
-             pattern: "npm",
-             desc: "download mp4 from url.",
-             category: "search",
+             pattern: "داون",
+             desc: "تحميل من رابط فيديو.",
+             category: "بحث",
              use: '<package name>',
              filename: __filename,
          },
@@ -217,9 +217,9 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
      )
      //---------------------------------------------------------------------------
  cmd({
-             pattern: "fliptext",
-             desc: "Flips given text.",
-             category: "misc",
+             pattern: "عكس",
+             desc: "عكس النص.",
+             category: "منوعات",
              use: '<query>',
              filename: __filename,
          },
@@ -232,9 +232,9 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
      )
      //---------------------------------------------------------------------------
  cmd({
-             pattern: "mp4fromurl",
-             desc: "download mp4 from url.",
-             category: "misc",
+             pattern: "امبيفور",
+             desc: "فيديو من رابط.",
+             category: "منوعات",
              use: '<url>',
              filename: __filename,
          },
@@ -264,9 +264,9 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
      //---------------------------------------------------------------------------
  
  cmd({
-             pattern: "emix",
-             desc: "Mixes two emojies.",
-             category: "misc",
+             pattern: "دمج",
+             desc: "دمج ايموجي.",
+             category: "منوعات",
              use: '<query>',
              filename: __filename,
          },
@@ -286,9 +286,9 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
      )
      //---------------------------------------------------------------------------
  cmd({
-             pattern: "chatbot",
+             pattern: "شاتبوت",
              desc: "activates and deactivates chatbot.\nuse buttons to toggle.",
-             category: "misc",
+             category: "منوعات",
              filename: __filename
          },
          async(Void, citel, text,{ isCreator }) => {
@@ -351,9 +351,9 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
      )
      //---------------------------------------------------------------------------
  cmd({
-             pattern: "ebinary",
+             pattern: "بينري",
              desc: "encode binary",
-             category: "misc",
+             category: "منوعات",
              use: '<query>',
              filename: __filename,
          },
@@ -371,9 +371,9 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
      )
      //---------------------------------------------------------------------------
  cmd({
-             pattern: "dbinary",
+             pattern: "ديكود",
              desc: "decode binary",
-             category: "misc",
+             category: "منوعات",
              use: '<query>',
              filename: __filename,
          },
@@ -449,9 +449,9 @@ let buttons = [{
          
      //---------------------------------------------------------------------------
  cmd({
-             pattern: "antilink",
+             pattern: "امنع",
              desc: "activates and deactivates antilink.\nuse buttons to toggle.",
-             category: "group",
+             category: "القروبات",
              filename: __filename,
          },
          async(Void, citel, text) => {
@@ -481,10 +481,10 @@ let buttons = [{
          }
      )
      cmd({
-        pattern: 'ss',
+        pattern: 'سكرين',
         alias :['webss' , 'fullss'],
-        category: "search",
-        desc: "Provides screenshot of given url",
+        category: "بحث",
+        desc: "اخذ سكرين من رابط",
         use: '<text>',
         filename: __filename,
     },
