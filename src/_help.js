@@ -49,9 +49,9 @@ Secktor.cmd({
                 })
                 const time = moment(moment())
                     .format('HH:mm:ss')
-                moment.tz.setDefault('Asia/Riyadh')
+                moment.tz.setDefault('Asia/Aden')
                     .locale('id')
-                const date = moment.tz('Asia/Riyadh').format('DD/MM/YYYY')
+                const date = moment.tz('Asia/Aden').format('DD/MM/YYYY')
                 let total = await sck1.countDocuments()
                 let str = `╭───《 ` + fancytext(Config.ownername.split(' ')[0], 58) + ` 》────⊷\n`
                 str +=   `*◞🏀 SLAM DUNK 🏀 ┆哈桑🧡◜*
