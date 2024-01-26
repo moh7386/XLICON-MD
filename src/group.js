@@ -538,32 +538,7 @@ cmd({
         }
     )
     //---------------------------------------------------------------------------
-cmd({
-            pattern: "ترقية",
-            desc: "رفع عضو لمشرف",
-            category: "القروبات",
-            filename: __filename,
-            use: '<quote|reply|number>',
-        },
-        async(Void, citel, text) => {
-            if (!citel.isGroup) return citel.reply(tlang().group);
-            const groupAdmins = await getAdmin(Void, citel)
-            const botNumber = await Void.decodeJid(Void.user.id)
-            const isBotAdmins = citel.isGroup ? groupAdmins.includes(botNumber) : false;
-            const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
 
-            if (!isAdmins) return citel.reply(tlang().admin);
-            if (!isBotAdmins) return citel.reply(tlang().botAdmin);
-            try {
-                let users = citel.mentionedJid[0] ? citel.mentionedJid[0] : citel.quoted ? citel.quoted.sender : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
-                if (!users) return;
-                await Void.groupParticipantsUpdate(citel.chat, [users], "promote");
-            } catch {
-                //		citel.reply(tlang().botAdmin);
-
-            }
-        }
-    )
     //---------------------------------------------------------------------------
 cmd({
             pattern: "طرد",
