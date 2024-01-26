@@ -444,11 +444,11 @@ cmd({
             }
             let disc = citel.sender.substring(3, 7);
             let textr = '';
-            textr += `*✦ ─┯┯┯┯ ⋅⊱✿⊰⋅ ┯┯┯┯─ ✦*\n*Hii ${tlang().greet} ,🌟 ${citel.pushName}∆${disc}'s* Exp\n\n`;
+            textr += `*✦ ─┯┯┯┯ ⋅⊱✿⊰⋅ ┯┯┯┯─ ✦*\n*مرحبا 🌟 ${citel.pushName}∆${disc}'s* مستواك\n`;
             let ttms = `${userq.xp}` / 8;
             textr += `*🌟الرول*: ${role}\n*🟢الإكس بي*: ${userq.xp} / ${Levels.xpFor(
     userq.level + 1
-  )}\n*🏡المستوى*: ${userq.level}\n*عدد الرسائل:*- ${ttms}\n *✦ ─┷┷┷┷ ⋅⊱✿⊰⋅ ┷┷┷┷─ ✦*`;
+  )}\n*🏡المستوى*: ${userq.level}\n*✉️عدد الرسائل:*- ${ttms}\n *✦ ─┷┷┷┷ ⋅⊱✿⊰⋅ ┷┷┷┷─ ✦*`;
             try {
                 ppuser = await Void.profilePictureUrl(citel.sender, "image");
             } catch {
