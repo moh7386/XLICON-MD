@@ -358,15 +358,16 @@ cmd({
             } catch (e) {
                 pfp = await botpic();
             }
-            const profile = `
-*Hii ${citel.pushName},*
-*Here is your profile information*
+            const profile = `*✧༝┉˚*❋ ❋*˚┉༝✧*
+*مرحباً 💛 ${citel.pushName},*
+*🌙هذه معلومات بروفايلك🌙*
 *👤الإسم:* ${citel.pushName}
-*⚡البايو:* ${bioo}
+*⚡البايو:*
+《${bioo}》
 *🧩الرول:* ${role}
 *🍁المستوى:* ${userq.level}
 *📥عدد الرسائل* ${ttms}
-*الثيم ${tlang().title}*
+*︶꒦꒷♡꒷꒦︶*
 `;
             let buttonMessage = {
                 image: {
