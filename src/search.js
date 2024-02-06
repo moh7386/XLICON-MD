@@ -168,7 +168,7 @@ cmd({
             if (!text) return reply("Hey bie please tell me for which pic you're looking");
             let name1 = text.split("|")[0]
             let name2 = text.split("|")[1] || `1`
-            citel.reply(`جاري إرسال ${name2} صور ${name1} في الشات`)
+            citel.reply(`جاري إرسال ${name2} صورة *${name1}* في الشات`)
             let nn = name2
             for (let i = 0; i < nn; i++) {
 
@@ -178,7 +178,7 @@ cmd({
                         image: {
                             url: images,
                         },
-                        caption: `_Sector Image Search_\n*${name1}*`,
+                        caption: `_هذه صورة_\n*${name1}*`,
                         headerType: 4,
                     };
                     Void.sendMessage(citel.chat, buttonMessage, {
