@@ -21,7 +21,7 @@ const Secktor = require('../lib/src')
     //---------------------------------------------------------------------------
 Secktor.cmd({
             pattern: "مينو",
-            alias: ["ايمي","اوامر"],
+            alias: ["حسونه","اوامر"],
             desc: "Help list",
             category: "عام",
             react: "✨",
