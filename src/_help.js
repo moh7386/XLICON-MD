@@ -24,7 +24,7 @@ Secktor.cmd({
             alias: ["بيكا","اوامر"],
             desc: "Help list",
             category: "عام",
-            react: "✨",
+            react: "⚡️",
             filename: __filename
         },
         async(Void, citel, text) => {
@@ -54,9 +54,8 @@ Secktor.cmd({
                 const date = moment.tz('Asia/Aden').format('DD/MM/YYYY')
                 let total = await sck1.countDocuments()
                 let str = `╭───《 ` + fancytext(Config.ownername.split(' ')[0], 58) + ` 》────⊷\n`
-                str +=   `*◞⚡️Pika Pika⚡️┆亜美💛◜*
+                str +=   `*◞⚡️PIKACHU⚡️┆贝卡 💛◜*
 *◈.مرحبا أنا بيكاتشو-بوت.*
-*◈قبل كل أمر حط نقطة(.).*
 ┐─────═━ه┈━═────┌                    
 │ │ المستخدم:- ${citel.pushName}
 │ │ الثيم:- ${tlang().title}
@@ -262,7 +261,7 @@ Secktor.cmd({
 *◞❊ 「واتسب」*
 • الشرح┊يرسل أرقام عشوائي مشابهه لرقمك.
 
-                 *◞⚡️بيكا بطور موكا⚡️◜*`
+                 *◞⚡️بيكا بيكا بطور ميكا⚡️◜*`
                 let buttonMessaged = {
                     image: { url: await botpic() },
                     caption: str
