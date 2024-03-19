@@ -261,7 +261,7 @@ Secktor.cmd({
 *◞❊ 「واتسب」*
 • الشرح┊يرسل أرقام عشوائي مشابهه لرقمك.
 
-                 *◞⚡️بيكا بيكا بطور ميكا⚡️◜*`
+                 *◞⚡️بيكا بطور موكا⚡️◜*`
                 let buttonMessaged = {
                     image: { url: await botpic() },
                     caption: str
