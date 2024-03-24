@@ -49,8 +49,7 @@ cmd(
     category: "الالعاب",
   },
   async (Void,citel,text) => {
-    if (!citel.isGroup) return citel.reply(tlang().group);
-    let {prefix} = require('../lib')
+        let {prefix} = require('../lib')
     {
       let TicTacToe = require("../lib/ttt");
       this.game = this.game ? this.game : {};
