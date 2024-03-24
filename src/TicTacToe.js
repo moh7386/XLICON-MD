@@ -117,7 +117,7 @@ cmd(
     on: "text"
   },
   async (Void,citel,text) => {
-    if(!citel.isGroup) return
+    
     let {prefix} = require('../lib')
     this.game = this.game ? this.game : {};
     let room = Object.values(this.game).find(
