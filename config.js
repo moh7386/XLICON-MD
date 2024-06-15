@@ -1,60 +1,90 @@
+//#ENJOY
+/**
 
-const fs = require('fs-extra')
-if (fs.existsSync('config.env')) require('dotenv').config({ path: __dirname+'/config.env' })
+░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░ ░▒▓███████▓▒░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░░▒▓██████▓▒░░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░ 
+ ░▒▓█████████████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓█▓▒░ 
+                                                      
 
+**/
 
-//═══════[Required Variables]════════\\
-global.owner = process.env.OWNER_NUMBER || "" // Make SURE its Not Be Empty, Else Bot Stoped And Errors,
-global.mongodb = process.env.MONGODB_URI || "mongodb+srv://salmanahmad:s4salmanyt@cluster0.szcj2eo.mongodb.net/?retryWrites=true&w=majority"
-global.port= process.env.PORT || 5000
-global.email = 'xheikhsalman4422@gmail.com'
-global.github = 'https://github.com/salmanytofficial/XLICON-MD'
-global.location = 'Lahore Pak'
-global.gurl = 'https://instagram.com/itz_shaikho/' // add your username
-global.sudo = process.env.SUDO || '923184070915' 
-global.devs = '923184070915';
-global.website = 'https://github.com/salmanytofficial/XLICON-MD' //wa.me/+91000000000000
-global.THUMB_IMAGE = process.env.THUMB_IMAGE || 'https://d.top4top.io/p_2947qv1mj0.jpg'
+const fs = require("fs-extra");
+if (fs.existsSync(".env"))
+  require("dotenv").config({ path: __dirname + "/.env" });
+global.audio = "";
+global.video = "";
+global.port = process.env.PORT;
+global.appUrl = process.env.APP_URL || "";
+global.email = "wasixml@gmail.com";
+global.location = "Lahore,Pakistan.";
+global.mongodb = process.env.MONGODB_URI || "";
+global.allowJids = process.env.ALLOW_JID || "923192173398@s.whatsapp.net";
+global.blockJids = process.env.BLOCK_JID || "null";
+global.DATABASE_URL = process.env.DATABASE_URL || "";
+global.timezone = process.env.TZ || process.env.TIME_ZONE || "Asia/Karachi";
+global.github = process.env.GITHUB || "https://github.com/Itxxwasi/WASI-MD-V2";
+global.gurl = process.env.GURL || "https://whatsapp.com/channel/0029VaDK8ZUDjiOhwFS1cP2j";
+global.website = process.env.GURL || "https://whatsapp.com/channel/0029VaDK8ZUDjiOhwFS1cP2j";
+global.THUMB_IMAGE = process.env.THUMB_IMAGE || process.env.IMAGE || "https://telegra.ph/file/1f4e6e1cc2ed1662adb36.jpg";
+global.devs = "923135673658";
+global.sudo = process.env.SUDO || "923135673658,923192173398";
+global.owner = process.env.OWNER_NUMBER || "923135673658";
+global.style = process.env.STYLE || "3";
+global.gdbye = process.env.GOODBYE || "false";
+global.wlcm = process.env.WELCOME || "false";
+global.warncount = process.env.WARN_COUNT || 3;
+global.disablepm = process.env.DISABLE_PM || "false";
+global.disablegroup = process.env.DISABLE_GROUPS || "false",
+global.MsgsInLog = process.env.MSGS_IN_LOG || "true";
+global.userImages = process.env.USER_IMAGES || "";
+global.waPresence = process.env.WAPRESENCE || "online";
+global.readcmds = process.env.READ_COMMAND || "false";
+global.readmessage = process.env.READ_MESSAGE || "false";
+global.readmessagefrom = process.env.READ_MESSAGE_FROM || "";
+global.read_status = process.env.AUTO_READ_STATUS || "true";
+global.save_status = process.env.AUTO_SAVE_STATUS || "false";
+global.save_status_from = process.env.SAVE_STATUS_FROM || "";
+global.read_status_from = process.env.READ_STATUS_FROM || "";
+
+global.api_smd = "https://api-smd-1.vercel.app";
+global.scan = "https://wasimdscanner-68feefafb737.herokuapp.com/";
+
+global.SESSION_ID =
+  process.env.SESSION_ID ||
+  ""
 module.exports = {
-  sessionName:  process.env.SESSION_ID ||  " ",  //PUT Session Id Here, 
-  author:  process.env.PACK_AUTHER ||  '',
-  packname:  process.env.PACK_NAME || '',
-   
-  botname:   process.env.BOT_NAME === undefined ? "Xlicon-Md" : process.env.BOT_NAME,
-  ownername: process.env.OWNER_NAME === undefined ? 'salmanytofficial' : process.env.OWNER_NAME,  
-  auto_read_status :  process.env.AUTO_READ_STATUS === undefined ? false : process.env.AUTO_READ_STATUS,
-  autoreaction:  process.env.AUTO_REACTION  === undefined ? false : process.env.AUTO_REACTION ,
-  antibadword :  process.env.ANTI_BAD_WORD === undefined ? 'nbwoed' : process.env.ANTI_BAD_WORD,
-  alwaysonline:  process.env.ALWAYS_ONLINE === undefined ? false : process.env.ALWAYS_ONLINE,
-  antifake : process.env.FAKE_COUNTRY_CODE === undefined ? '971' : process.env.FAKE_COUNTRY_CODE,
-  readmessage:  process.env.READ_MESSAGE === undefined ? false : process.env.READ_MESSAGE,
-  auto_status_saver: process.env.AUTO_STATUS_SAVER === undefined ? false : process.env.AUTO_STATUS_SAVER,
-  HANDLERS:  process.env.PREFIX === undefined ? '.' : process.env.PREFIX,
-  warncount : process.env.WARN_COUNT === undefined ? 3 : process.env.WARN_COUNT,
-  disablepm:  process.env.DISABLE_PM === undefined ? false : process.env.DISABLE_PM,
-  levelupmessage:  process.env.LEVEL_UP_MESSAGE === undefined ? false : process.env.LEVEL_UP_MESSAGE,
-  antilink:  process.env.ANTILINK_VALUES === undefined ? 'chat.whatsapp.com' : process.env.ANTILINK_VALUES,
-  antilinkaction: process.env.ANTILINK_ACTION === undefined ? 'remove' : process.env.ANTILINK_ACTION,
-  BRANCH: 'main', 
-  ALIVE_MESSAGE:  process.env.ALIVE_MESSAGE === undefined ? '' : process.env.ALIVE_MESSAGE,
-  autobio:  process.env.AUTO_BIO === undefined ? false : process.env.AUTO_BIO,
-  OPENAI_API_KEY:  process.env.OPENAI_API_KEY === undefined ? false : process.env.OPENAI_API_KEY,
-  heroku:  process.env.heroku === undefined ? false : process.env.heroku,
-  HEROKU: {
-    HEROKU: process.env.HEROKU ||false,
-    API_KEY: process.env.HEROKU_API_KEY === undefined ? '' : process.env.HEROKU_API_KEY,
-    APP_NAME: process.env.HEROKU_APP_NAME === undefined ? '' : process.env.HEROKU_APP_NAME
-},
-  VERSION: process.env.VERSION === undefined ? 'v.0.0.3' : process.env.VERSION,
-  LANG: process.env.THEME|| 'GOJO',
-  WORKTYPE: process.env.WORKTYPE === undefined ? 'public' : process.env.WORKTYPE
+  menu: process.env.MENU || "",
+  HANDLERS: process.env.PREFIX || ".",
+  BRANCH: process.env.BRANCH || "main",
+  VERSION: process.env.VERSION || "1.0.0",
+  caption: process.env.CAPTION || "𝐅𝐈𝐋𝐄-𝐆𝐄𝐍𝐄𝐑𝐀𝐓𝐄𝐃-𝐁𝐘-𝐖𝐀𝐒𝐈-𝐌𝐃-𝐕2😍",
+  author: process.env.PACK_AUTHER || "WASO",
+  packname: process.env.PACK_NAME || "♥️",
+  botname: process.env.BOT_NAME || "𝐖𝐀𝐒𝐈-𝐌𝐃-𝐕2",
+  ownername: process.env.OWNER_NAME || "WASI",
+  errorChat: process.env.ERROR_CHAT || "923192173398",
+  KOYEB_API: process.env.KOYEB_API || "false",
+  REMOVE_BG_KEY: process.env.REMOVE_BG_KEY || "",
+  OPENAI_API_KEY: process.env.OPENAI_API_KEY || "",
+  HEROKU_API_KEY: process.env.HEROKU_API_KEY || "",
+  HEROKU_APP_NAME: process.env.HEROKU_APP_NAME || "",
+  antilink_values: process.env.ANTILINK_VALUES || "chat.whatsapp.com",
+  HEROKU: process.env.HEROKU_APP_NAME && process.env.HEROKU_API_KEY,
+  aitts_Voice_Id: process.env.AITTS_ID || "37",
+  ELEVENLAB_API_KEY: process.env.ELEVENLAB_API_KEY || "",
+  WORKTYPE: process.env.WORKTYPE || process.env.MODE || "private",
+  LANG: (process.env.THEME || "WASI").toUpperCase(),
 };
-
-
-let file = require.resolve(__filename)
+global.rank = "updated";
+global.isMongodb = false;
+let file = require.resolve(__filename);
 fs.watchFile(file, () => {
-	fs.unwatchFile(file)
-	console.log(`Update'${__filename}'`)
-    delete require.cache[file]
-	require(file)
-})
+  fs.unwatchFile(file);
+  console.log(`Update'${__filename}'`);
+  delete require.cache[file];
+  require(file);
+});
